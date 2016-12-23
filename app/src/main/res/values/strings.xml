@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ApplicasterTask</string>
+
+    <string name="consumerKey">tSW9zgUuFIeg7ZBl7TJXG0EwD</string>
+    <string name="SecretKet">ER3MJNfizswMeLud3mj5drQ6HcZtXFHmM1VyeRA8WgpCD8T78M</string>
+    <string name="search_for_hashtag">#hashtag…</string>
+    <string name="user_profile_image">user profile image</string>
+    <string name="tweet_image">tweet image</string>
+
+
+</resources>

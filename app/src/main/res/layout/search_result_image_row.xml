@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/searchResultTextInclude"
+        layout="@layout/search_result_text_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></include>
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchResultTextInclude"
+        android:contentDescription="@string/tweet_image"/>
+
+</RelativeLayout>
