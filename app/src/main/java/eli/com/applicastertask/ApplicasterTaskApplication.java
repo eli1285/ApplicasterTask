@@ -22,4 +22,5 @@ public class ApplicasterTaskApplication extends Application {
         TwitterAuthConfig authConfig = new TwitterAuthConfig(consumerKey, SecretKet);
         Fabric.with(this, new Twitter(authConfig));
     }
+
 }
