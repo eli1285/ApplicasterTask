@@ -1,13 +1,23 @@
 package eli.com.applicastertask;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
+import android.support.test.espresso.Espresso;
+import android.support.test.espresso.IdlingPolicies;
+import android.support.test.espresso.IdlingResource;
+import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import java.util.concurrent.TimeUnit;
+
+import eli.com.applicastertask.activities.LauncherActivity;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -16,11 +26,12 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
-    @Test
-    public void useAppContext() throws Exception {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
+    @Rule
+    public ActivityTestRule mActivityRule = new ActivityTestRule<>(LauncherActivity.class);
 
-        assertEquals("eli.com.applicastertask", appContext.getPackageName());
+    @Test
+    public void testSearch() {
+        onView(withId(R.id.searchView)).perform(click());
+//        onView(withId(R.id.searchView)).perform(typeText("rsa"));
     }
 }
