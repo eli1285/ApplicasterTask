@@ -149,7 +149,6 @@ public class TweetsFragment extends BaseFragment implements SwipeRefreshLayout.O
         swipeRefreshLayout.setRefreshing(false);
     }
 
-
     private void setAdapter(List<TwitterQueryResult> tweets) {
         if (tweets != null && !tweets.isEmpty()) {
             if (twitterSearchResultAdapter == null) {
