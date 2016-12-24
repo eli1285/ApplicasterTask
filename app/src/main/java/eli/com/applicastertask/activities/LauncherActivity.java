@@ -11,7 +11,10 @@ public class LauncherActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        replaceFragment(TweetsFragment.newInstance(), false);
+        if (savedInstanceState == null) {
+            // Prevent of replace fragment on orientation change
+            replaceFragment(TweetsFragment.newInstance(), false);
+        }
     }
 
 

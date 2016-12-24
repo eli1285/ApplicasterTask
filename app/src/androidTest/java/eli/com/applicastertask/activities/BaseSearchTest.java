@@ -23,7 +23,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.withContentDesc
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withParent;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static eli.com.applicastertask.constants.Constant.SEARCH_FOR_EMPTY;
 import static org.hamcrest.Matchers.allOf;
 
 
@@ -31,6 +30,15 @@ import static org.hamcrest.Matchers.allOf;
  * Created by eli on 24/12/16.
  */
 public class BaseSearchTest {
+
+    protected void waitThread(long mil) {
+        try {
+            Thread.sleep(mil);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     protected void clickOnSearch(){
         ViewInteraction appCompatImageView = onView(
@@ -50,16 +58,16 @@ public class BaseSearchTest {
         searchAutoComplete.perform(replaceText(text), closeSoftKeyboard());
     }
 
-    protected void clickOnImeSearch(){
+    protected void clickOnImeSearch(String textInIt){
         ViewInteraction searchAutoComplete2 = onView(
-                allOf(withId(R.id.search_src_text), withText(SEARCH_FOR_EMPTY),
+                allOf(withId(R.id.search_src_text), withText(textInIt),
                         withParent(allOf(withId(R.id.search_plate),
                                 withParent(withId(R.id.search_edit_frame)))),
                         isDisplayed()));
         searchAutoComplete2.perform(pressImeActionButton());
     }
 
-    protected void assertRowResultVisible(boolean isVisible){
+    protected void assertRowResultVisible(){
         ViewInteraction relativeLayout = onView(
                 allOf(childAtPosition(
                         allOf(withId(R.id.rvTweets),
@@ -68,7 +76,19 @@ public class BaseSearchTest {
                                         0)),
                         0),
                         isDisplayed()));
-        relativeLayout.check(isVisible ? matches(isDisplayed()) : doesNotExist());
+        relativeLayout.check(matches(isDisplayed()));
+    }
+
+    protected void assertRowResultNotVisible(){
+        ViewInteraction relativeLayout = onView(
+                allOf(childAtPosition(
+                        allOf(withId(R.id.rvTweets),
+                                childAtPosition(
+                                        withId(R.id.swipeRefreshLayout),
+                                        0)),
+                        0),
+                        isDisplayed()));
+        relativeLayout.check(doesNotExist());
     }
 
     private static Matcher<View> childAtPosition(

@@ -1,5 +1,6 @@
 package eli.com.applicastertask.activities;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -40,6 +42,16 @@ public class BaseActivity extends AppCompatActivity {
         initSearchOpenListener();
         initSearchCloseListener();
         initSearchOnSubmitListener();
+        searchView.setImeOptions(searchView.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+    }
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // on orientation change close the search
+        searchView.onActionViewCollapsed();
+        tvAppTitle.setVisibility(View.VISIBLE);
     }
 
     /**
