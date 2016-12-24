@@ -1,7 +1,5 @@
 package eli.com.applicastertask.model.classes;
 
-import com.twitter.sdk.android.core.models.Tweet;
-
 import java.io.Serializable;
 
 /**

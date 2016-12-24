@@ -14,7 +14,6 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
-import eli.com.applicastertask.enums.TwitterResultType;
 import eli.com.applicastertask.interfaces.SearchStrategy;
 import eli.com.applicastertask.model.classes.Query;
 import eli.com.applicastertask.model.classes.TwitterQuery;
