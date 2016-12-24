@@ -10,6 +10,7 @@
 - If evrything OK you can build and run.
 
 ### Using and terms: ###
+- To search tweets I use the Fabric Twitter SDK.
 - Typing hashtag in the toolbar action search button and click on next/search in the keyboard.
 - If you write hashtag without "#" in the beginning it automatically added for you, so you can search without typing "#" every time.
 - If you want to refresh the results I added swipe to refresh layout.
