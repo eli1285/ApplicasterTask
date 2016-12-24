@@ -17,7 +17,7 @@
 - The list will contain 20(if exists) related recent tweets.
 
 ### Concept and Architecture: ###
-- My guiding principle is:
+- My guiding principle was:
   - Writing code that is not repeating itself, To achieve this I'm using: inheritance, layout-includes tag, simple functions that are responsible of one thing etc.
   - Decoupling as low as possible, To achieve this I'm using the EventBus library which help to pass data without coupling class to each other, also using interfaces to avoid coupling.
   - Modularity and also to give the ability to change or add functionality with ease, To achieve this I'm using the strategy pattern so if in the future we will need to change search for example to Facebook posts search we only need to create concrete strategy class and current code can handle that.
