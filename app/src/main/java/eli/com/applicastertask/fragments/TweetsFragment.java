@@ -157,8 +157,6 @@ public class TweetsFragment extends BaseFragment implements SwipeRefreshLayout.O
             } else {
                 refreshAdapter(tweets);
             }
-        } else {
-            rvTweets.setAdapter(null);
         }
     }
 
